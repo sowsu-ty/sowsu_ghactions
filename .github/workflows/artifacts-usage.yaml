@@ -1,0 +1,15 @@
+name: artifact usage
+on: [push]
+
+jobs:
+    artifact-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: execute command
+              run: expr 1+1 > output.log
+            - name: upload outputfile
+              uses: actions/upload-artifact@v3
+              with: 
+                name: my-artifact
+                path: output.log
+                
